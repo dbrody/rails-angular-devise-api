@@ -1,0 +1,13 @@
+<div class="form-group" ng-class="error ? 'has-error' : ''">
+  <div class="small_title" ng-if="model">
+    {{title}}
+  </div>
+  <div class="small_title small_error">{{(error[0]) ? ((errorstr) ? errorstr : error[0]) : ''}}</div>
+  <input type="{{type}}"
+         name="{{field}}"
+         placeholder="{{placeholder}}"
+         id="password"
+         ng-model="model"
+         required="required"
+         class="form-control">
+</div>

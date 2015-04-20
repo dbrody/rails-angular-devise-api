@@ -1,0 +1,187 @@
+.registration {
+	
+	padding-top: 30px;
+
+	.view_wrapper {
+
+		.side_spacer {
+			@include make-xs-column(1);
+		}
+
+		.view {
+			@include make-xs-column(10);
+		}
+	}
+}
+
+.small_title {
+	/* What languages do yo: */
+	font-size: 10px;
+	color: #9B9B9B;
+	line-height: 12px;
+
+	&.small_error {
+		color: #ce4844;
+	}
+}
+
+.body {
+	padding: 0px 20%;
+}
+
+.registraion_page {
+	width: 100%;
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	background: #F8F8F8;
+
+	.title {
+		background: #E15837;
+		/* All About You: */
+		font-family: 'Gotham';
+		font-weight: 400;
+		font-size: 26px;
+		padding: 10px;
+		text-align: center;
+		color: #FFFFFF;
+		line-height: 43px;
+	}
+
+	.body {
+		padding: 0px 20%;
+
+		.section {
+			img {
+				margin-bottom: 30px;
+			}
+
+			text-align: center;
+			/* The Basics: */
+			font-family: 'Gotham';
+			font-size: 26px;
+			color: #4A4A4A;
+			line-height: 70px;
+		}
+
+		.via_assessment {
+			background: #EBEBEB;
+			text-align: center;
+			font-family: Gotham-Book;
+			font-size: 12px;
+			color: #4A4A4A;
+			line-height: 20px;
+			width: 80%;
+			padding: 30px;
+			margin: 20px auto;
+		}
+
+		.button_holder {
+			text-align: center;
+			padding: 30px;
+		}
+
+		.mindset_list {
+			.mindset {
+				float:left;
+				width: 20%;
+				padding: 15px;
+				margin: 10px;
+
+				&.active {
+					background-color: #EEE;
+					border-color: #CCC;
+				}
+			}
+		}
+
+		/* For Page */
+		.heading {
+			padding: 30px 10px;
+			text-align: center;
+
+			.heading_supertitle {
+				font-family: Gotham-Book;
+				font-size: 14px;
+				color: #4A4A4A;
+			}
+
+			.heading_title {
+				text-align: center;
+				font-family: Gotham-Book;
+				font-size: 26px;
+				color: #4A4A4A;
+			}
+
+			.heading_subtitle {
+				text-align: center;
+				padding-top: 15px;
+				padding-bottom: 15px;
+				font-family: Gotham-Book;
+				font-size: 12px;
+				color: #4A4A4A;
+				line-height: 12px;
+			}
+		}
+
+		.interest_section {
+
+			padding: 20px 0px;
+
+			.left {
+				padding-top: 10px;
+				@include make-xs-column(4);
+			}
+
+			.right {
+				@include make-xs-column(8);
+			}
+
+			input {
+				/* Rectangle 278: */
+				margin: 5px 0px;
+				border: 0px;
+				text-transform: uppercase;
+				color: #FDFDFD;
+				background: #2AAB95;
+				box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.31);
+
+				&::-webkit-input-placeholder {
+				   color: #72DBC9;
+				}
+
+				&:-moz-placeholder { /* Firefox 18- */
+				   color: #72DBC9;
+				}
+
+				&::-moz-placeholder {  /* Firefox 19+ */
+				   color: #72DBC9;
+				}
+
+				&:-ms-input-placeholder {  
+				   color: #72DBC9;
+				}
+
+
+			}
+
+			.delete_button {
+				float: right;
+				margin: -30px 5px 0px 0px;
+				cursor: pointer;
+				color: #EEE;
+			}
+
+			.add_item {
+				/* Rectangle 278: */
+				border: 2px dashed #D8D8D8;
+				background-color: transparent;
+				/* Add another activity: */
+				font-family: Gotham-Book;
+				color: #9B9B9B;
+				width: 100%;
+				padding: 7px 3px;
+			}
+		}
+
+		
+	}
+}

@@ -1,0 +1,53 @@
+.registraion_page {
+	.body {
+		.dropdown_selection {
+
+			padding: 5px;
+
+			input {
+				width: 80%;
+			}
+
+			.dropup {
+				.dropup_text_icon {
+					padding: 10px;
+					position: relative;
+					left: -40px;
+					top: 3px;
+					cursor: pointer;
+					color: #FFF;
+				}
+			}
+
+			.btn-contain-editor {
+				padding: 0px;
+			}
+
+			button {
+				/* Rectangle 278: */
+				margin: 5px 0px;
+				border: 0px;
+				text-transform: uppercase;
+				color: #FDFDFD;
+				background: #2AAB95;
+				box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.31);
+
+				&::-webkit-input-placeholder {
+				   color: #72DBC9;
+				}
+
+				&:-moz-placeholder { /* Firefox 18- */
+				   color: #72DBC9;
+				}
+
+				&::-moz-placeholder {  /* Firefox 19+ */
+				   color: #72DBC9;
+				}
+
+				&:-ms-input-placeholder {  
+				   color: #72DBC9;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,2 @@
+class MomentInspiration < Moment
+end

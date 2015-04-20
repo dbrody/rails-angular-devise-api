@@ -1,0 +1,223 @@
+<div class="home_page">
+  <BR><BR><BR>
+  <div>
+    <div class="text-center">
+      <h3 style="text-transform: none;">A sample Rails / Angular API app!</h3>
+    </div>
+    <div class="text-center" style="padding-top: 40px;" ng-if="!user.id">
+      <a class="btn btn-secondary btn-lg" ng-click="showRegister()">REGISTER</a>&nbsp;&nbsp;&nbsp;
+      <a class="btn btn-primary btn-lg" ng-click="showLogin()">LOGIN</a>
+    </div>
+    <div class="text-center" style="padding-top: 40px;" ng-if="user.id">
+      <a class="btn btn-primary btn-lg" ui-sref="root.moments.all">HOME</a>
+    </div>
+  </div>
+</div>
+
+<script type="text/ng-template" id="loginPopup.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Login</h3>
+    </div>
+    <div ng-if="error" class="alert alert-danger" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error:</span>
+      {{error}}
+    </div>
+    <div ng-if="state==='login'" class="modal-body">
+      <form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email"
+                 name="email"
+                 id="email"
+                 ng-model="loginForm.email"
+                 required="required"
+                 class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password"
+                 name="password"
+                 id="password"
+                 ng-model="loginForm.password"
+                 required="required"
+                 class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+      </form>
+      <div class="text-center">
+        <a ng-click="setState('forgot')">Forgot Password</a>
+      </div>
+    </div>
+    <div ng-if="state==='forgot'" class="modal-body">
+      <form ng-submit="sendResetLogin(resetForm)" role="form" ng-init="resetForm = {}">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email"
+                 name="email"
+                 id="email"
+                 ng-model="resetForm.email"
+                 required="required"
+                 class="form-control">
+        </div>
+        <button type="submit" ng-disabled="sendingReset" class="btn btn-primary btn-lg btn-block">Reset Password</button>
+      </form>
+    </div>
+    <div ng-if="state==='sent'" class="modal-body">
+      <div>
+        <B>Password Reset Sent</B><BR><BR>
+        Check your email address (<B>{{email}}</B>) for a reset password link.
+      </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="registerPopup.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Register</h3>
+    </div>
+    <div
+      ng-if="key != 'full_messages'"
+      ng-repeat="(key, error) in errors"
+      class="alert alert-danger"
+      role="alert"
+      style="margin-bottom:0px">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error:</span>
+      {{(key==='password_confirmation') ? 'Password Confirmation' : key}} {{error[0]}}
+    </div>
+    <div class="modal-body">
+      <form ng-submit="submitRegister()" role="form" ng-init="registrationForm = {}">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email"
+                 name="email"
+                 id="email"
+                 ng-model="registrationForm.email"
+                 required="required"
+                 class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password"
+                 name="password"
+                 id="password"
+                 ng-model="registrationForm.password"
+                 required="required"
+                 class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="password">Password Confirmation</label>
+          <input type="password"
+                 name="password_confirmation"
+                 id="password_confirmation"
+                 ng-model="registrationForm.password_confirmation"
+                 required="required"
+                 class="form-control">
+        </div>
+        <button type="submit" ng-disabled="registering" class="btn btn-primary btn-lg btn-block">Register</button>
+      </form>
+    </div>
+</script>
+
+<script type="text/ng-template" id="passwordReset.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Password Reset</h3>
+    </div>
+    <div
+      ng-repeat="(key, error) in errors | unique"
+      class="alert alert-danger"
+      role="alert"
+      style="margin-bottom:0px">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error:</span>
+      {{error}}
+    </div>
+    <div style="padding: 20px;">
+      <div style="padding: 10px 0px; font-size: 24px; font-weight: bold;">Enter in a new password:</div>
+      <div class="form-group">
+        <label for="password">New Password</label>
+        <input type="password"
+               name="password"
+               id="password"
+               ng-model="passwordResetForm.password"
+               required="required"
+               class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="password">New Password Confirmation</label>
+        <input type="password"
+               name="password_confirmation"
+               id="password_confirmation"
+               ng-model="passwordResetForm.password_confirmation"
+               required="required"
+               class="form-control">
+      </div>
+    </div>
+    <div class="modal-body">
+      <form ng-submit="changePassword()" role="form">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">OK</button>
+      </form>
+    </div>
+</script>
+
+<script type="text/ng-template" id="passwordChangedPopup.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Password Changed</h3>
+    </div>
+    <div style="padding: 20px;">
+      <div style="padding: 10px 0px; font-size: 24px; font-weight: bold;">Your password has been successfully changed.</div>
+      <div>Please click OK and continue to login.</div>
+    </div>
+    <div class="modal-body">
+      <form ng-submit="$close()" role="form">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">OK</button>
+      </form>
+    </div>
+</script>
+
+<script type="text/ng-template" id="thanksPopup.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Registered</h3>
+    </div>
+    <div style="padding: 20px;">
+      <div style="padding: 10px 0px; font-size: 24px; font-weight: bold;">Thanks for signing up for YourStory.</div>
+      <div>You should receive an email confirmation at <b>{{email}}</b>. Please click the link within the email to continue registration.
+      </div>
+    </div>
+    <div class="modal-body">
+      <form ng-submit="$close()" role="form">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">OK</button>
+      </form>
+    </div>
+</script>
+
+<script type="text/ng-template" id="confirmedPopup.html">
+  <div ng-if="status=='1'">
+    <div class="modal-header">
+        <h3 class="modal-title">Email Confirmed</h3>
+    </div>
+    <div style="padding: 20px;">
+      <div style="padding: 10px 0px; font-size: 24px; font-weight: bold;">Your email has been confirmed.</div>
+      <div>Please click OK and continue to login.</div>
+    </div>
+    <div class="modal-body">
+      <form ng-submit="$close(status)" role="form">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">OK</button>
+      </form>
+    </div>
+  </div>
+  <div ng-if="status=='0'">
+    <div class="modal-header">
+        <h3 class="modal-title">Email Confirm Error</h3>
+    </div>
+    <div style="padding: 20px;">
+      <div style="padding: 10px 0px; font-size: 24px; font-weight: bold;">There was a problem trying to confirm your email.</div>
+      <div>Please click OK and try to confirm your email again.</div>
+    </div>
+    <div class="modal-body">
+      <form ng-submit="$close(status)" role="form">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">OK</button>
+      </form>
+    </div>
+  </div>
+</script>

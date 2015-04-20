@@ -1,0 +1,61 @@
+<!--[if lt IE 7]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+<div class="header">
+  <nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" ng-if="user.id" ui-sref="root.moments.all">Sample App</a>
+        <a class="navbar-brand" ng-if="!user.id" ui-sref="root.home">Sample App</a>
+
+        <ul ng-if="user.id" class="nav navbar-nav navbar-left">
+          <li>
+            <a ng-class="($state.current.name.split('.')[1] == 'moments') ? 'active': ''" ui-sref="root.moments.all">Moments</a>
+          </li>
+        </ul>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li ng-show="user.id" class="dropdown add-moment">
+            <!-- Single button -->
+            <div ng-if="user.name" class="btn-group top_add_dropdown">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                Add <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a ui-sref="root.prompt.inspiration" class="inspiration">
+                  INSPIRATION
+                </a></li>
+                <li><a ui-sref="root.prompt.experience" class="experience">
+                  EXPERIENCE
+                </a></li>
+                <li><a ui-sref="root.prompt.accomplishment" class="accomplishment">
+                  ACCOMPLISHMENT
+                </a></li>
+              </ul>
+            </div>
+          </li>
+          <li ng-show="user.id"><a ng-click='signOut()'>Sign out</a></li>
+
+          <li ng-show="!user.id"><a ng-click="showRegister()">Register</a></li>
+          <li ng-show="!user.id"><a ng-click='showLogin()'>Login</a></li>
+
+          <li ng-show="user.id && user.name" class="profile_icon">
+            <a ui-sref="root.profile" class="profile_icon_a">{{userinitials}}</a>
+          </li>
+          <!-- <li ng-show="user.id"><a class="profile-img" href="./"><img class="img-circle" src="//placehold.it/40x40" /><span class="sr-only">(current)</span></a></li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div ui-view style="height:100%;"></div>

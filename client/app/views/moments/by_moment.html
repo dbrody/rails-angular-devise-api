@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2 activity-list">
+        <div class="col-md-12" style="padding-bottom: 20px;">
+            <div style="float: left;">
+                <h2>MOMENTS BY TYPE</h2>
+            </div>
+            <div style="float: right;">
+                <a ui-sref="root.moments.all">
+                    <img src="/images/mindset_toggle_moments.png">
+                </a>
+            </div>
+        </div>
+        <div class="activity-list" ng-repeat="category in
+            [['Inspiration', 'MomentInspiration', 'root.prompt.inspiration'],
+            ['Experiences', 'MomentExperience', 'root.prompt.experience'],
+            ['Accomplishments', 'MomentAccomplishment', 'root.prompt.accomplishment']]">
+            <div class="col-md-12">
+                <h4 style="color: #757575;">{{category[0]}} ({{numInCategory(category[1])}})</h4>
+            </div>
+            <moment-view
+                class="col-md-4 moment-container"
+                ng-click="toggleMoment(moment)"
+                ng-if="showMoment(moment) && !moment.deleted"
+                moment="moment"
+                ng-repeat="moment in moments | filter:{ type: category[1] }"
+            ></moment-view>
+            <div class="col-md-4 moment-container" ng-click="$state.go(category[2])">
+                <div class="moment">
+                    <div class="moment-description">
+                        <B>ADD NEW<BR>{{category[0] | uppercase}}</B>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

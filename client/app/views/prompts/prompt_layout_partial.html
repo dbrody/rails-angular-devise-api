@@ -1,0 +1,26 @@
+<div class="registraion_page">
+  <!--
+    <div class="title">Moment of Inspiration</div>
+  -->
+  <div class="body">
+    <div class="heading">
+      <div class="heading_supertitle">{{supertitle}}</div>
+      <div class="heading_title">{{title}}</div>
+      <div class="heading_subtitle">{{subtitle}}</div>
+    </div>
+
+    <div ng-if="error.content" class="alert alert-danger" role="alert">
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error:</span>
+      {{error.content}}
+    </div>
+
+    <div text-angular ng-model="model.content"></div>
+
+    <Br/><Br/>
+
+    <div style="padding: 20px; text-align: center;">
+      <a ng-click="$parent.handlePrompFormCompletion();" class="btn btn-primary btn-lg">Create Moment</a>
+    </div>
+  </div>
+</div>

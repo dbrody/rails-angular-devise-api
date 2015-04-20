@@ -1,0 +1,295 @@
+@import "bootstrap.scss";
+
+@import "variables";
+@import "fonts";
+
+
+
+
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+body {
+    padding: 0 0 60px 0;
+
+    .navbar {
+        margin-bottom: 0px;
+    }
+}
+
+.btn-secondary {
+    color: #ffffff;
+    background-color: #222;
+}
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active,
+.btn-secondary.active,
+.open .dropdown-toggle.btn-secondary {
+    color: #ffffff; 
+    background-color: #333;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    text-transform: uppercase;
+}
+
+.nav {
+    li {
+        text-transform: uppercase;
+        letter-spacing: 1.15px;
+    }
+}
+
+.navbar {
+    
+    .top_add_dropdown {
+        ul {
+            background-color: #3A3A3A;
+
+            li {
+                padding: 10px 5px;
+                color: #FFF;
+                font-size: 12px;
+                text-align: center;
+
+                &:hover {
+                    background-color: #3A3A3A;
+                }
+
+                a {
+                    color: #FFF;
+                    background-repeat: no-repeat;
+                    background-position: top center;
+                    padding-top: 40px;
+
+                    &.active {
+                        color: #e15837;
+                    }
+
+                    &:hover {
+                        color: #E15837;
+                        background-color: #3A3A3A;
+                    }
+
+                    &.accomplishment {
+                        background-image: url('/images/add_accomplishment.png'); 
+                        &:hover {
+                            background-image: url('/images/add_accomplishment_hover.png');
+                        }
+                    }
+
+                    &.experience {
+                        background-image: url('/images/add_experience.png'); 
+                        &:hover {
+                            background-image: url('/images/add_experience_hover.png');
+                        }
+                    }
+
+                    &.inspiration {
+                        background-image: url('/images/add_inspiration.png'); 
+                        &:hover {
+                            background-image: url('/images/add_inspiration_hover.png');
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.mindset-header {
+    cursor: pointer;
+    display: inline-block;
+
+    &.active {
+        background-color: #EEE;
+    }
+    .mindset-container {
+        padding: 2px;
+        .mindset {
+            margin: 3px;
+        }
+    }
+}
+
+.active_moment_nav {
+    font-weight: 400;
+    background-color: #EEE;
+}
+
+.home_page {
+    background-color:#31C8AF;
+    height: 100%;
+}
+
+.moment-container {
+    margin: 10px 0;
+    height: $cell-height;
+    .moment {
+        cursor: pointer;
+
+        .moment-header-container {
+            position: absolute;
+            width: 90%;
+            background: #FFF;
+            height: $moment-header-height;
+            color: $text-light;
+            text-transform: uppercase;
+            font-weight: 400;
+            overflow: hidden;
+
+            .moment-delete {
+                color: #CCC;
+                padding: 10px 15px;
+
+                &:hover {
+                    color: #999;
+                }
+            }
+        }
+
+        .moment-header {
+            position: absolute;
+            background: $background-header;
+            width: 90%;
+            height: $moment-header-height;
+            color: $text-light;
+            padding: $cell-padding;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .moment-footer {
+            position: absolute;
+            bottom: 0px;
+            background: $background-header;
+            width: 90%;
+            height: $moment-header-height;
+            color: $text-light;
+            padding: 5px;
+            text-transform: uppercase;
+            font-weight: 400;
+            overflow: hidden;
+        }
+        .moment-description {
+            position: absolute;
+            text-align: center;
+            background: white;
+            width: 90%;
+            box-shadow: $box-shadow-default;
+            overflow-wrap: break-word;
+            padding: 50px 15px 15px 15px;
+            height: 100%;
+            overflow: hidden;
+
+            img {
+                max-width: 90%;
+            }
+        }
+    }
+}
+
+.modal-dialog {
+    height: 100%;
+    pointer-events: none;
+
+    .modal-content {
+        max-height: 80%;
+        pointer-events: all;
+        overflow: scroll;
+    }
+}
+
+.moment-modal {
+    
+    max-height: 50%;
+    overflow: scroll;
+
+    .modal-body {
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.onboarding {
+    background: $color-light-gray;
+    padding: 20px;
+}
+
+.add-moment {
+    @media (min-width: $screen-xs-min) {
+        margin:9px 0 0 0;
+    }
+    @media (max-width: $screen-xs-min) {
+        margin:0 0 0 14px;
+    }
+}
+
+textarea {
+    resize: none;
+}
+
+.profile-img {
+    @media (min-width: $screen-xs-min) {
+        padding:5px !important;
+    }
+    @media (max-width: $screen-xs-min) {
+        padding:0 0 0 14px;
+    }
+
+}
+
+.modal-header {
+    color: $text-light;
+    background: $background-header;
+    .modal-title {
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+}
+
+
+.profile_icon {
+    margin-top: 8px;
+    background: #FFF;
+    color: #7A7A7A;
+    text-align: center;
+    padding-top: 7px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    &.profile_icon_a {
+        color: #7A7A7A;
+        padding: 0px;
+        margin: 0px;
+
+        &:hover {
+            color: #E15837;
+        }
+    }
+
+    &.active {
+        color: #e15837;
+    }
+
+}
+
+
+@import "registration";
+@import "prompt";
+@import "profile";
+

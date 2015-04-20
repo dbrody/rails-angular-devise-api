@@ -1,0 +1,57 @@
+<div class="registraion_page">
+  <div class="title">All About You</div>
+
+  <div class="body">
+    <div class="section">
+      <img src="images/registration_the_basics.png"><br>
+      The Basics
+    </div>
+
+    <registration-input
+      model='$parent.registrationForm.name'
+      title="What is your full name?"
+      error="$parent.error.name"
+    ></registration-input>
+
+    <registration-input
+      model='$parent.registrationForm.nickname'
+      title="What is your nickname?"
+      error="$parent.error.nickname"
+    ></registration-input>
+
+    <registration-input
+      model='$parent.registrationForm.date_of_birth'
+      placeholder='Birth Day (mm/dd/yyyy)'
+      title="What is your birthday? (mm/dd/yyyy)"
+      error="$parent.error.date_of_birth"
+      errorstr="Birthday can't be blank"
+    ></registration-input>
+
+    <!--
+    <div class="form-group">
+      <label for="school_id">School</label>
+      <select name="school_id"
+             id="school_id"
+             ng-model="registrationForm.school_id"
+             required="required"
+             class="form-control">
+        <option value="1">School 1</option>
+        <option value="2">School 2</option>
+      </select>
+    </div>
+    -->
+
+    <div class="section">The Details</div>
+
+    <registration-input
+      model='$parent.registrationForm.where_born'
+      title="Where were you born?"
+      error="$parent.error.where_born"
+      errorstr="Please fill in a response."
+    ></registration-input>
+
+    <div class="button_holder">
+      <a ng-click="$parent.validateBasics()" class="btn btn-primary btn-lg">Next</a>
+    </div>
+  </div>
+</div>
