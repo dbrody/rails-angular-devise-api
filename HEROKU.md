@@ -17,9 +17,6 @@ This setup uses multiple buildpacks to individually build the Angular app and th
 7. Set Email Password: `heroku config:set GMAIL_PASSWORD=<my account password>`
 6. Set Heroku URL for email links: `heroku config:set URL=https://[app name].herokuapp.com`
 
-**Notes**
-It seems like there may be an issue on first build / push. Using the default Ruby buildpack on first push should set up the environment correctly. Then reset to use the buildpack-multi and re-push.
-
 
 ## Deploy to Heroku
 
