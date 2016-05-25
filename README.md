@@ -36,11 +36,12 @@ Set up your environment for this project.
 Once the environment is set up, now install and configure this application.
 
 1. Clone this repo then `cd` into the new repo folder
-2. Install the gems with bundle: `bundle install`
-3. Go into the frontend folder: `cd client`
-4. Install NPM dependencies: `npm install`
-5. Intall bower dependencies: `bower install`
-6. Migrate the database: `rake db:create db:migrate`
+2. Install bundle: `gem install bundle`
+3. Install the gems with bundle: `bundle install`
+4. Go into the frontend folder: `cd client`
+5. Install NPM dependencies: `npm install`
+6. Intall bower dependencies: `bower install`
+7. Migrate the database: `rake db:create db:migrate`
 
 ### Running the Application
 
